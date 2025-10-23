@@ -970,3 +970,542 @@ footer {
         padding: 20px;
     }
 }
+/* Theme Toggle */
+.theme-toggle {
+    margin-left: 20px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: #fff;
+    cursor: pointer;
+    transition: var(--transition);
+}
+.theme-toggle:hover {
+    background: var(--secondary-color);
+}
+
+/* Dot Button */
+.dot-btn {
+    margin-left: 20px;
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.dot-btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .founder-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+    }
+    
+    .founder-image {
+        flex: 0 0 auto;
+        width: 200px;
+        margin-bottom: 30px;
+    }
+    
+    .founder-social {
+        justify-content: center;
+    }
+    
+    .testimonials-slider {
+        flex-direction: column;
+    }
+    
+    .testimonial-card {
+        flex: 0 0 100%;
+        margin-bottom: 20px;
+    }
+}
+
+/* Case Studies Section */
+.case-studies {
+    background-color: var(--light-bg);
+    padding: 80px 0;
+}
+
+.case-studies-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.case-study-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.case-study-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.case-study-image {
+    height: 200px;
+    background-color: var(--primary);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.case-study-image:nth-child(1) {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+}
+
+.case-study-image:nth-child(2) {
+    background: linear-gradient(135deg, var(--secondary), var(--accent));
+}
+
+.case-study-image:nth-child(3) {
+    background: linear-gradient(135deg, var(--accent), var(--primary));
+}
+
+.case-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.case-study-card:hover .case-overlay {
+    opacity: 1;
+}
+
+.case-overlay h3 {
+    color: white;
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+.btn-small {
+    padding: 8px 16px;
+    font-size: 14px;
+    background-color: var(--primary);
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-small:hover {
+    background-color: var(--secondary);
+    transform: translateY(-2px);
+}
+
+.case-study-content {
+    padding: 25px;
+}
+
+.case-study-content h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: var(--primary);
+}
+
+.case-study-content p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.case-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: var(--text-light);
+}
+
+@media (max-width: 992px) {
+    .case-studies-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .case-studies-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* Roadmap Section */
+.roadmap {
+    background-color: #f8f9fa;
+    padding: 80px 0;
+}
+
+.roadmap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.roadmap-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.roadmap-card:hover {
+    transform: translateY(-10px);
+}
+
+.roadmap-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.roadmap-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.roadmap-card p {
+    margin-bottom: 25px;
+}
+
+/* Contact Section */
+.contact {
+    background-color: white;
+}
+
+.contact-container {
+    display: flex;
+    gap: 50px;
+}
+
+.contact-form {
+    flex: 1;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.contact-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.info-item i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-right: 15px;
+    width: 30px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-5px);
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-color);
+    color: white;
+    padding: 60px 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.footer-logo h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.footer-logo span {
+    color: var(--accent-color);
+}
+
+.footer-links {
+    display: flex;
+    gap: 50px;
+}
+
+.footer-column h3 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: var(--accent-color);
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: #9ca3af;
+}
+
+.footer-column ul li a:hover {
+    color: white;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #1f2937;
+    color: #9ca3af;
+    font-size: 0.9rem;
+}
+
+/* Dark Theme Overrides */
+[data-theme="dark"] body {
+    background-color: #0b0f18;
+    color: #e5e7eb;
+}
+
+[data-theme="dark"] header {
+    background-color: rgba(11, 15, 24, 0.9);
+    box-shadow: none;
+    border-bottom: 1px solid #1f2937;
+}
+
+[data-theme="dark"] .nav-links a {
+    color: #e5e7eb;
+}
+
+[data-theme="dark"] .hamburger span {
+    background-color: #e5e7eb;
+}
+
+[data-theme="dark"] .hero {
+    background: linear-gradient(135deg, rgba(67,97,238,0.15) 0%, rgba(58,12,163,0.15) 100%);
+}
+
+[data-theme="dark"] .about,
+[data-theme="dark"] .pillars,
+[data-theme="dark"] .testimonials,
+[data-theme="dark"] .contact,
+[data-theme="dark"] .team,
+[data-theme="dark"] .case-studies,
+[data-theme="dark"] .roadmap {
+    background-color: #0b0f18;
+}
+
+[data-theme="dark"] .strength-card,
+[data-theme="dark"] .pillar,
+[data-theme="dark"] .founder-container,
+[data-theme="dark"] .founder-image img,
+[data-theme="dark"] .testimonial-card,
+[data-theme="dark"] .case-study-card,
+[data-theme="dark"] .roadmap-card,
+[data-theme="dark"] .contact-form,
+[data-theme="dark"] .form-group input,
+[data-theme="dark"] .form-group textarea {
+    background-color: #111827;
+    color: #e5e7eb;
+    border-color: #374151;
+}
+
+@media (max-width: 992px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .about-content,
+    .contact-container {
+        flex-direction: column;
+    }
+    
+    .about-image {
+        margin-top: 30px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .footer-links {
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background-color: white;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition);
+    }
+    
+    .nav-links.active {
+        left: 0;
+    }
+    
+    .nav-links li {
+        margin: 15px 0;
+    }
+    
+    .hamburger {
+        display: block;
+    }
+    
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+    
+    .hero .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .hero-content {
+        padding-right: 0;
+        margin-bottom: 40px;
+    }
+    
+    .cta-buttons {
+        justify-content: center;
+    }
+    
+    .section-header h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    section {
+        padding: 60px 0;
+    }
+    
+    .hero {
+        padding: 120px 0 60px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+    
+    .strength-card,
+    .roadmap-card {
+        padding: 20px;
+    }
+}
