@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <style>
+    .st0{fill:#4361EE;}
+    .st1{fill:#3A0CA3;}
+    .st2{fill:#4CC9F0;}
+    .st3{fill:#F8F9FA;}
+    .st4{fill:#2B2D42;}
+  </style>
+  <g>
+    <!-- Background elements -->
+    <circle class="st3" cx="400" cy="300" r="250" opacity="0.3"/>
+    <circle class="st2" cx="500" cy="200" r="80" opacity="0.2"/>
+    <circle class="st0" cx="300" cy="400" r="100" opacity="0.1"/>
+    
+    <!-- Computer/Dashboard -->
+    <rect class="st4" x="250" y="200" width="300" height="200" rx="10"/>
+    <rect class="st3" x="260" y="210" width="280" height="170" rx="5"/>
+    
+    <!-- Screen content -->
+    <rect class="st0" x="280" y="230" width="100" height="10" rx="2"/>
+    <rect class="st2" x="280" y="250" width="240" height="5" rx="2"/>
+    <rect class="st2" x="280" y="265" width="200" height="5" rx="2"/>
+    <rect class="st2" x="280" y="280" width="220" height="5" rx="2"/>
+    
+    <!-- Charts and graphs -->
+    <rect class="st0" x="280" y="300" width="60" height="60" rx="5"/>
+    <rect class="st1" x="350" y="300" width="60" height="60" rx="5"/>
+    <rect class="st2" x="420" y="300" width="60" height="60" rx="5"/>
+    
+    <!-- AI elements -->
+    <circle class="st1" cx="550" cy="150" r="40"/>
+    <path class="st3" d="M550,130 L550,170 M530,150 L570,150" stroke-width="8" stroke="#F8F9FA" fill="none"/>
+    
+    <!-- Connection lines -->
+    <path class="st0" d="M510,150 C480,180 450,200 420,220" stroke-width="2" stroke="#4361EE" fill="none"/>
+    <path class="st0" d="M510,150 C480,160 450,180 390,220" stroke-width="2" stroke="#4361EE" fill="none"/>
+    <path class="st0" d="M510,150 C480,170 450,190 360,220" stroke-width="2" stroke="#4361EE" fill="none"/>
+    
+    <!-- Marketing elements -->
+    <circle class="st0" cx="200" cy="150" r="30"/>
+    <path class="st3" d="M190,150 L210,150 M200,140 L200,160" stroke-width="6" stroke="#F8F9FA" fill="none"/>
+    
+    <!-- Connection lines -->
+    <path class="st2" d="M230,150 C260,170 290,190 320,210" stroke-width="2" stroke="#4CC9F0" fill="none"/>
+    <path class="st2" d="M230,150 C260,180 290,200 350,210" stroke-width="2" stroke="#4CC9F0" fill="none"/>
+    <path class="st2" d="M230,150 C260,160 290,180 380,210" stroke-width="2" stroke="#4CC9F0" fill="none"/>
+    
+    <!-- Base/Stand -->
+    <path class="st4" d="M350,400 L450,400 L430,450 L370,450 Z"/>
+    <rect class="st4" x="370" y="450" width="60" height="10" rx="2"/>
+  </g>
+</svg>
