@@ -89,27 +89,40 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', highlightNavLink);
     
     // Form submission handling
-    const contactForm = document.querySelector('.contact-form form');
+    const GOOGLE_SHEET_ENDPOINT = 'https://script.google.com/macros/s/REPLACE_WITH_YOUR_DEPLOYED_WEB_APP_ID/exec';
+    const contactForm = document.querySelector('#contact-form') || document.querySelector('.contact-form form');
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        const statusEl = document.querySelector('.form-status');
+        contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
-            
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const company = document.getElementById('company').value;
-            const message = document.getElementById('message').value;
-            
-            // Simple form validation
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const company = document.getElementById('company').value.trim();
+            const message = document.getElementById('message').value.trim();
             if (!name || !email || !message) {
-                alert('Please fill in all required fields.');
+                if (statusEl) statusEl.textContent = 'Please fill in all required fields.';
+                else alert('Please fill in all required fields.');
                 return;
             }
-            
-            // Here you would typically send the form data to a server
-            // For now, we'll just show a success message
-            alert('Thank you for your message! We will get back to you soon.');
-            contactForm.reset();
+            if (statusEl) statusEl.textContent = 'Sending...';
+            const payload = { name, email, company, message, timestamp: new Date().toISOString() };
+            try {
+                const res = await fetch(GOOGLE_SHEET_ENDPOINT, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload),
+                    mode: 'cors',
+                });
+                if (res.ok) {
+                    if (statusEl) statusEl.textContent = 'Thanks! We will get back to you soon.';
+                    else alert('Thank you for your message! We will get back to you soon.');
+                    contactForm.reset();
+                } else {
+                    if (statusEl) statusEl.textContent = 'Unable to submit right now. Please try WhatsApp.';
+                }
+            } catch (err) {
+                if (statusEl) statusEl.textContent = 'Network error. Please try WhatsApp or email.';
+            }
         });
     }
     

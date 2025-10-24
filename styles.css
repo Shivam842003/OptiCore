@@ -1509,3 +1509,19 @@ footer {
         padding: 20px;
     }
 }
+.whatsapp-btn {
+  background-color: #25D366;
+  color: #fff;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 12px;
+}
+.whatsapp-btn:hover {
+  background-color: #1ebe56;
+}
+.form-status {
+  margin-top: 12px;
+  font-size: 0.95rem;
+}
