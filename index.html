@@ -24,6 +24,18 @@
                     <li><a href="index.html#about">About</a></li>
                     <li><a href="index.html#contact">Contact</a></li>
                 </ul>
+                <div class="auth-section">
+                    <div id="auth-buttons" class="auth-buttons">
+                        <button id="github-login-btn" class="btn btn-github">
+                            <i class="fab fa-github"></i> Login with GitHub
+                        </button>
+                    </div>
+                    <div id="user-info" class="user-info" style="display: none;">
+                        <img id="user-avatar" class="user-avatar" src="" alt="User Avatar">
+                        <span id="user-name" class="user-name"></span>
+                        <button id="logout-btn" class="btn btn-logout">Logout</button>
+                    </div>
+                </div>
                 <div class="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme">
                     <i class="fas fa-moon"></i>
                 </div>
@@ -395,6 +407,46 @@
         </div>
     </footer>
 
+    <script src="auth.js"></script>
     <script src="script.js"></script>
+    <script>
+        // Initialize GitHub OAuth functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const githubLoginBtn = document.getElementById('github-login-btn');
+            const logoutBtn = document.getElementById('logout-btn');
+            const authButtons = document.getElementById('auth-buttons');
+            const userInfo = document.getElementById('user-info');
+            const userAvatar = document.getElementById('user-avatar');
+            const userName = document.getElementById('user-name');
+
+            // Check if user is already authenticated
+            function updateAuthUI() {
+                if (githubAuth.isAuthenticated()) {
+                    const user = githubAuth.getUserInfo();
+                    authButtons.style.display = 'none';
+                    userInfo.style.display = 'flex';
+                    userAvatar.src = user.avatar_url;
+                    userName.textContent = user.name || user.login;
+                } else {
+                    authButtons.style.display = 'block';
+                    userInfo.style.display = 'none';
+                }
+            }
+
+            // GitHub login button click handler
+            githubLoginBtn.addEventListener('click', function() {
+                githubAuth.login();
+            });
+
+            // Logout button click handler
+            logoutBtn.addEventListener('click', function() {
+                githubAuth.logout();
+                updateAuthUI();
+            });
+
+            // Initialize UI state
+            updateAuthUI();
+        });
+    </script>
 </body>
 </html>

@@ -19,6 +19,10 @@
     {
       "source": "/terms",
       "destination": "/terms-of-service.html"
+    },
+    {
+      "source": "/auth/callback/github",
+      "destination": "/auth/callback/github.html"
     }
   ],
   "headers": [
