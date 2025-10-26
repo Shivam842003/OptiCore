@@ -448,8 +448,38 @@
             updateAuthUI();
         });
     </script>
-    <!-- LeadConnector Chat Widget -->
-    <chat-widget location-id="XcaA33bQpHsTTPTL3rnp"></chat-widget>
+    <!-- LeadConnector Chat Widget - Hidden by default -->
+    <chat-widget id="lead-chat-widget" location-id="XcaA33bQpHsTTPTL3rnp" style="display: none;"></chat-widget>
     <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"></script>
+    
+    <script>
+        // Function to show chat widget when user asks for it
+        function showChatWidget() {
+            const widget = document.getElementById('lead-chat-widget');
+            if (widget) {
+                widget.style.display = 'block';
+            }
+        }
+        // Expose for manual triggers
+        window.showChatWidget = showChatWidget;
+        
+        // Listen for messages that might contain "webchat" or "chat" keywords
+        document.addEventListener('keyup', function(event) {
+            const chatTriggerWords = ['webchat', 'chat', 'support', 'help'];
+            const target = event.target;
+            const userInput = (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA'))
+                ? (target.value || '').toLowerCase()
+                : '';
+            
+            if (userInput && chatTriggerWords.some(word => userInput.includes(word))) {
+                showChatWidget();
+            }
+        });
+        
+        // Show chat if URL contains ?chat=1
+        if (new URLSearchParams(window.location.search).get('chat') === '1') {
+            showChatWidget();
+        }
+    </script>
 </body>
 </html>

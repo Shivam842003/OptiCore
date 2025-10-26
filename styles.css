@@ -75,22 +75,22 @@ img {
 .btn {
     display: inline-block;
     padding: 12px 30px;
-    border-radius: var(--border-radius);
+    border-radius: 9999px; /* pill shape */
     font-weight: 600;
     text-align: center;
     cursor: pointer;
     transition: var(--transition);
     border: none;
+    box-shadow: 0 8px 20px rgba(67, 97, 238, 0.12);
 }
 
 .btn-primary {
-    background-color: var(--primary-color);
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
     color: white;
 }
 
 .btn-primary:hover {
-    background-color: var(--secondary-color);
-    color: white;
+    filter: brightness(1.05);
 }
 
 .btn-secondary {
@@ -184,8 +184,10 @@ nav {
 
 .nav-links a {
     color: var(--dark-color);
-    font-weight: 500;
+    font-weight: 600;
     position: relative;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
 }
 
 .nav-links a::after {
@@ -221,7 +223,7 @@ nav {
 /* Hero Section */
 .hero {
     padding: 150px 0 80px;
-    background: linear-gradient(135deg, rgba(67, 97, 238, 0.1) 0%, rgba(58, 12, 163, 0.1) 100%);
+    background: linear-gradient(135deg, rgba(67, 97, 238, 0.2) 0%, rgba(58, 12, 163, 0.2) 100%);
 }
 
 .hero .container {
