@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="64" viewBox="0 0 400 64" role="img" aria-label="OptiCore logo">
+  <title>OptiCore</title>
+  <rect width="100%" height="100%" fill="none"/>
+  <g font-family="Poppins, Arial, sans-serif" font-weight="700">
+    <text x="0" y="44" font-size="40" fill="#111827">Opti</text>
+    <text x="140" y="44" font-size="40" fill="#4361ee">Core</text>
+    <text x="280" y="44" font-size="18" fill="#6c757d">AI</text>
+  </g>
+</svg>

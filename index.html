@@ -18,8 +18,11 @@
                 <div class="logo">
                     <a href="#home" class="brand" aria-label="OptiCore AI home">
                         <img src="assets/OptiCoreai.jpg" alt="OptiCore AI logo" class="brand-logo">
-                        <!-- Replaced textual brand with ICO logo as requested -->
-                        <img src="assets/OptiCore.ico" alt="OptiCore logo" class="brand-ico">
+                        <!-- Prefer SVG (sharp), fall back to ICO -->
+                        <picture class="brand-picture">
+                            <source srcset="assets/OptiCore.svg" type="image/svg+xml">
+                            <img src="assets/OptiCore.ico" alt="OptiCore logo" class="brand-ico">
+                        </picture>
                     </a>
                 </div>
                 <ul class="nav-links">
@@ -375,7 +378,10 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="assets/OptiCore.ico" alt="OptiCore logo" class="footer-logo-img">
+                    <picture>
+                        <source srcset="assets/OptiCore.svg" type="image/svg+xml">
+                        <img src="assets/OptiCore.ico" alt="OptiCore logo" class="footer-logo-img">
+                    </picture>
                     <p>AI Automation & Marketing Agency</p>
                 </div>
                 <div class="footer-links">
