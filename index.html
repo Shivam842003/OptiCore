@@ -16,11 +16,7 @@
         <div class="container">
             <nav>
                 <div class="logo">
-                    <a href="#home" class="brand" aria-label="OptiCore AI home">
-                        <img src="assets/OptiCoreai.jpg" alt="OptiCore AI logo" class="brand-logo">
-                        <!-- Replaced textual brand with ICO logo as requested -->
-                        <img src="assets/OptiCore.ico" alt="OptiCore logo" class="brand-ico">
-                    </a>
+                    <h1>Opti<span>Core</span></h1>
                 </div>
                 <ul class="nav-links">
                     <li><a href="index.html#team">Team</a></li>
@@ -28,10 +24,6 @@
                     <li><a href="index.html#about">About</a></li>
                     <li><a href="index.html#contact">Contact</a></li>
                 </ul>
-                    <!-- Theme toggle -->
-                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
-                        <i class="fas fa-moon"></i>
-                    </button>
                     <div id="user-info" class="user-info" style="display: none;">
                         <img id="user-avatar" class="user-avatar" src="" alt="User Avatar">
                         <span id="user-name" class="user-name"></span>
@@ -375,7 +367,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="assets/OptiCore.ico" alt="OptiCore logo" class="footer-logo-img">
+                    <h2>Opti<span>Core</span></h2>
                     <p>AI Automation & Marketing Agency</p>
                 </div>
                 <div class="footer-links">
@@ -422,39 +414,63 @@
             function updateAuthUI() {
                 if (githubAuth.isAuthenticated()) {
                     const user = githubAuth.getUserInfo();
-                    if (authButtons) authButtons.style.display = 'none';
-                    if (userInfo) userInfo.style.display = 'flex';
-                    if (userAvatar) userAvatar.src = user.avatar_url;
-                    if (userName) userName.textContent = user.name || user.login;
+                    authButtons.style.display = 'none';
+                    userInfo.style.display = 'flex';
+                    userAvatar.src = user.avatar_url;
+                    userName.textContent = user.name || user.login;
                 } else {
-                    if (authButtons) authButtons.style.display = 'block';
-                    if (userInfo) userInfo.style.display = 'none';
+                    authButtons.style.display = 'block';
+                    userInfo.style.display = 'none';
                 }
             }
 
             // GitHub login button click handler
-            if (githubLoginBtn) {
-                githubLoginBtn.addEventListener('click', function() {
-                    githubAuth.login();
-                });
-            }
+            githubLoginBtn.addEventListener('click', function() {
+                githubAuth.login();
+            });
 
             // Logout button click handler
-            if (logoutBtn) {
-                logoutBtn.addEventListener('click', function() {
-                    githubAuth.logout();
-                    updateAuthUI();
-                });
-            }
+            logoutBtn.addEventListener('click', function() {
+                githubAuth.logout();
+                updateAuthUI();
+            });
 
             // Initialize UI state
             updateAuthUI();
         });
     </script>
-    <!-- LeadConnector Chat Widget -->
-    <chat-widget id="lead-chat-widget" location-id="XcaA33bQpHsTTPTL3rnp"></chat-widget>
+    <!-- LeadConnector Chat Widget - Hidden by default -->
+    <chat-widget id="lead-chat-widget" location-id="XcaA33bQpHsTTPTL3rnp" style="display: none;"></chat-widget>
     <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"></script>
     
-
+    <script>
+        // Function to show chat widget when user asks for it
+        function showChatWidget() {
+            const widget = document.getElementById('lead-chat-widget');
+            if (widget) {
+                widget.style.display = 'block';
+            }
+        }
+        // Expose for manual triggers
+        window.showChatWidget = showChatWidget;
+        
+        // Listen for messages that might contain "webchat" or "chat" keywords
+        document.addEventListener('keyup', function(event) {
+            const chatTriggerWords = ['webchat', 'chat', 'support', 'help'];
+            const target = event.target;
+            const userInput = (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA'))
+                ? (target.value || '').toLowerCase()
+                : '';
+            
+            if (userInput && chatTriggerWords.some(word => userInput.includes(word))) {
+                showChatWidget();
+            }
+        });
+        
+        // Show chat if URL contains ?chat=1
+        if (new URLSearchParams(window.location.search).get('chat') === '1') {
+            showChatWidget();
+        }
+    </script>
 </body>
 </html>
